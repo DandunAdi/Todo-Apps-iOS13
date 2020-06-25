@@ -22,7 +22,6 @@ class ItemViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         loadItems()
     }
     
@@ -42,8 +41,10 @@ class ItemViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath)
-
-        cell.textLabel?.text = items?[indexPath.row].title ?? "No to-do items available"
+        
+        if let item = items?[indexPath.row] {
+            cell.textLabel?.text = item.title
+        }
 
         return cell
     }
