@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		ECF4DEB162EF7105BAA93B49 /* Pods_Todo_Apps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10DE555D2E28FB00993B688D /* Pods_Todo_Apps.framework */; };
+		FD1B0AF324A55E6500E21625 /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1B0AF224A55E6500E21625 /* ItemTableViewController.swift */; };
 		FDD3544524A4E27F007F9D29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD3544424A4E27F007F9D29 /* AppDelegate.swift */; };
 		FDD3544724A4E27F007F9D29 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD3544624A4E27F007F9D29 /* SceneDelegate.swift */; };
 		FDD3544C24A4E27F007F9D29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDD3544A24A4E27F007F9D29 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 		10DE555D2E28FB00993B688D /* Pods_Todo_Apps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Todo_Apps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CFD19865CAC924F333D9C43 /* Pods-Todo Apps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todo Apps.debug.xcconfig"; path = "Target Support Files/Pods-Todo Apps/Pods-Todo Apps.debug.xcconfig"; sourceTree = "<group>"; };
 		7CFD05D1A3836B8B0C7DCD50 /* Pods-Todo Apps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todo Apps.release.xcconfig"; path = "Target Support Files/Pods-Todo Apps/Pods-Todo Apps.release.xcconfig"; sourceTree = "<group>"; };
+		FD1B0AF224A55E6500E21625 /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
 		FDD3544124A4E27F007F9D29 /* Todo Apps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Todo Apps.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDD3544424A4E27F007F9D29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDD3544624A4E27F007F9D29 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				FDD3545A24A4EA3A007F9D29 /* CategoryViewController.swift */,
+				FD1B0AF224A55E6500E21625 /* ItemTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD1B0AF324A55E6500E21625 /* ItemTableViewController.swift in Sources */,
 				FDD3544524A4E27F007F9D29 /* AppDelegate.swift in Sources */,
 				FDD3545B24A4EA3A007F9D29 /* CategoryViewController.swift in Sources */,
 				FDD3544724A4E27F007F9D29 /* SceneDelegate.swift in Sources */,
