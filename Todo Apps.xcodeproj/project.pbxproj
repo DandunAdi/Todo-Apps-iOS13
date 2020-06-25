@@ -14,6 +14,7 @@
 		FDD3544E24A4E281007F9D29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDD3544D24A4E281007F9D29 /* Assets.xcassets */; };
 		FDD3545124A4E281007F9D29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDD3544F24A4E281007F9D29 /* LaunchScreen.storyboard */; };
 		FDD3545B24A4EA3A007F9D29 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD3545A24A4EA3A007F9D29 /* CategoryViewController.swift */; };
+		FDD3545E24A4EBEC007F9D29 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD3545D24A4EBEC007F9D29 /* Category.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		FDD3545024A4E281007F9D29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FDD3545224A4E281007F9D29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDD3545A24A4EA3A007F9D29 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		FDD3545D24A4EBEC007F9D29 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,8 +84,9 @@
 			children = (
 				FDD3544424A4E27F007F9D29 /* AppDelegate.swift */,
 				FDD3544624A4E27F007F9D29 /* SceneDelegate.swift */,
-				FDD3545824A4E973007F9D29 /* Controller */,
+				FDD3545C24A4EB9D007F9D29 /* Model */,
 				FDD3545924A4E979007F9D29 /* View */,
+				FDD3545824A4E973007F9D29 /* Controller */,
 				FDD3544D24A4E281007F9D29 /* Assets.xcassets */,
 				FDD3544F24A4E281007F9D29 /* LaunchScreen.storyboard */,
 				FDD3545224A4E281007F9D29 /* Info.plist */,
@@ -105,6 +108,14 @@
 				FDD3544A24A4E27F007F9D29 /* Main.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		FDD3545C24A4EB9D007F9D29 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FDD3545D24A4EBEC007F9D29 /* Category.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +236,7 @@
 				FDD3544524A4E27F007F9D29 /* AppDelegate.swift in Sources */,
 				FDD3545B24A4EA3A007F9D29 /* CategoryViewController.swift in Sources */,
 				FDD3544724A4E27F007F9D29 /* SceneDelegate.swift in Sources */,
+				FDD3545E24A4EBEC007F9D29 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
