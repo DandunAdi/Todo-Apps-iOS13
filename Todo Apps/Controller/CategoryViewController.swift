@@ -7,30 +7,44 @@
 //
 
 import UIKit
+import RealmSwift
 
 class CategoryViewController: UITableViewController {
-
+    
+    let realm = try! Realm()
+    var categories: Results<Category>?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        
+        loadCategories()
+    }
+    
+    //MARK: - Model manipulation methods
+    
+    func loadCategories() {
+        categories = realm.objects(Category.self)
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return categories?.count ?? 1
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath)
+        cell.textLabel?.text = categories?[indexPath.row].name ?? "No Category Available"
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
