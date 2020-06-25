@@ -28,7 +28,38 @@ class CategoryViewController: UITableViewController {
         categories = realm.objects(Category.self)
         tableView.reloadData()
     }
-
+    
+    func saveCategory(with category: Category) {
+        do {
+            try realm.write {
+                realm.add(category)
+            }
+        } catch {
+            print("Unable to save new category \(error)")
+        }
+        tableView.reloadData()
+    }
+    
+    
+    //MARK: - Add new category button
+    
+    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+        
+        let alert = UIAlertController(title: "Add Category", message: "", preferredStyle: .alert)
+        var textField = UITextField()
+        alert.addTextField { (actionTextField) in
+            actionTextField.placeholder = "Category name"
+            textField = actionTextField
+        }
+        alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { (action) in
+            let newCategory = Category()
+            newCategory.name = textField.text!
+            self.saveCategory(with: newCategory)
+        }))
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
     // MARK: - Table view data source
 
 
