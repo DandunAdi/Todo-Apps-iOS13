@@ -11,4 +11,5 @@ import RealmSwift
 
 class Category: Object {
     @objc dynamic var name: String = "New Category"
+    let items = List<Item>()
 }
