@@ -44,9 +44,24 @@ class ItemViewController: UITableViewController {
         
         if let item = items?[indexPath.row] {
             cell.textLabel?.text = item.title
+            cell.accessoryType = item.isDone ? .checkmark : .none
         }
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let item = items?[indexPath.row] {
+            do {
+                try realm.write {
+                    item.isDone = !item.isDone
+                }
+            } catch {
+                print("Unable to updating database \(error)")
+            }
+        }
+        tableView.reloadData()
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
 }
