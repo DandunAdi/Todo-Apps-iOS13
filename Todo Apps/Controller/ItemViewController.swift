@@ -23,6 +23,7 @@ class ItemViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadItems()
+        title = selectedCategory?.name
     }
     
     
