@@ -17,13 +17,15 @@ class ItemViewController: UITableViewController {
         }
     }
     var items: Results<Item>?
+    @IBOutlet weak var searchBar: UISearchBar!
     
     let realm = try! Realm()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadItems()
         title = selectedCategory?.name
+        searchBar.delegate = self
     }
     
     
@@ -33,7 +35,7 @@ class ItemViewController: UITableViewController {
         items = selectedCategory?.items.sorted(byKeyPath: "dateCreated", ascending: true)
         tableView.reloadData()
     }
-
+    
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Add to-do item", message: "", preferredStyle: .alert)
         var textField = UITextField()
@@ -59,11 +61,11 @@ class ItemViewController: UITableViewController {
         
     }
     // MARK: - Table view data source
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items?.count ?? 1
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath)
         
@@ -71,7 +73,7 @@ class ItemViewController: UITableViewController {
             cell.textLabel?.text = item.title
             cell.accessoryType = item.isDone ? .checkmark : .none
         }
-
+        
         return cell
     }
     
@@ -88,5 +90,33 @@ class ItemViewController: UITableViewController {
         tableView.reloadData()
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+}
 
+//MARK: - Search Bar Delegate Method
+extension ItemViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        //checking if user didn't type anyting then press search
+        if searchBar.text?.count == 0 {
+            clearSearchBar()
+            return
+        }
+        
+        items = items?.filter("title CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "dateCreated", ascending: true)
+        tableView.reloadData()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text?.count == 0 {
+            clearSearchBar()
+        }
+    }
+    
+    func clearSearchBar() {
+        loadItems()
+        DispatchQueue.main.async {
+            self.searchBar.resignFirstResponder()
+        }
+    }
 }
