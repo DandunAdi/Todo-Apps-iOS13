@@ -61,6 +61,8 @@ class ItemViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
         
     }
+    
+    
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -92,7 +94,27 @@ class ItemViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    
+    //MARK: - Table view swipe to delete
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            if let selectedItem = items?[indexPath.row] {
+                do {
+                    try realm.write {
+                        realm.delete(selectedItem)
+                        tableView.reloadData()
+                    }
+                } catch {
+                    print("Unable to delete item \(error)")
+                }
+            }
+        }
+        
+    }
 }
+
 
 //MARK: - Search Bar Delegate Method
 extension ItemViewController: UISearchBarDelegate {
