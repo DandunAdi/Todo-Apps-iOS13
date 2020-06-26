@@ -26,6 +26,7 @@ class ItemViewController: UITableViewController {
         loadItems()
         title = selectedCategory?.name
         searchBar.delegate = self
+        self.hideKeyboardWhenTappedAround()
     }
     
     
@@ -119,4 +120,17 @@ extension ItemViewController: UISearchBarDelegate {
             self.searchBar.resignFirstResponder()
         }
     }
+    
+    
+    // dismiss keyboard when user tap outside
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
 }
