@@ -67,7 +67,13 @@
                             <outlet property="delegate" destination="SWX-Gr-bPp" id="jXP-yz-Y77"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Groceries" id="rVQ-RU-Iz3"/>
+                    <navigationItem key="navigationItem" title="Groceries" id="rVQ-RU-Iz3">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Cav-Um-Olc">
+                            <connections>
+                                <action selector="addButtonPressed:" destination="SWX-Gr-bPp" id="XYn-Hs-95X"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p3l-ra-kLS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

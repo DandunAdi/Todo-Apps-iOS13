@@ -33,6 +33,30 @@ class ItemViewController: UITableViewController {
         tableView.reloadData()
     }
 
+    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Add to-do item", message: "", preferredStyle: .alert)
+        var textField = UITextField()
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = "To-do name"
+            textField = alertTextField
+        }
+        alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { (alertAction) in
+            do {
+                try self.realm.write {
+                    let newItem = Item()
+                    newItem.title = textField.text!
+                    newItem.dateCreated = Date()
+                    self.selectedCategory?.items.append(newItem)
+                    self.tableView.reloadData()
+                }
+            } catch {
+                print("Unable to save new to-do item \(error)")
+            }
+        }))
+        
+        present(alert, animated: true, completion: nil)
+        
+    }
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
